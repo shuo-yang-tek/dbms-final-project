@@ -1,0 +1,14 @@
+{
+   "name": "dbms-final-project",
+   "scripts": {
+      "start": "node --harmony src/server.js",
+      "test": "node --harmony src/test.js"
+   },
+   "version": "0.0.1",
+   "author": "Shuo Ynag",
+   "license": "MIT",
+   "dependencies": {
+      "express": "^4.15.2",
+      "sqlite3": "^3.1.8"
+   }
+}
