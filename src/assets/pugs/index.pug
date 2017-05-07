@@ -1,0 +1,62 @@
+doctype html
+html(lang = "zh-tw")
+   head
+      meta(charset = "utf-8")
+      meta(http-equiv = "X-UA-Compatible", content = "IE=edge")
+      meta(name = "viewport", content = "width=device-width, initial-scale=1")
+      link(href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel = "stylesheet")
+      title 資料庫期末專題
+   body
+      #loading(v-show = "show", style = "position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:9999;background-color:rgba(0,0,0,0.7);text-align:center;color:#fff;")
+         | Loading...
+      .container
+         .row
+            .col-xs-12
+               .panel.panel-default
+                  .panel-heading
+                     strong 文章列表
+                  .panel-body
+                     button.btn.btn-primary(onclick = "showEditArticle(-1)", style = "width:100%;")
+                        | 新增文章
+                     table.table.table-striped
+                        thead
+                           tr
+                              th 文章編號
+                              th 標題
+                              th 作者
+                              th 發布時間
+                              th 編輯
+                              th 刪除
+                        tbody#articles
+                           tr(v-for = "article in articles")
+                              td {{ article.id }}
+                              td {{ article.title }}
+                              td {{ article.author }}
+                              td {{ article.timeStr }}
+                              td 
+                                 button.btn.btn-warning(@click = "edit(article.id)")
+                                    | 編輯
+                              td
+                                 button.btn.btn-danger(@click = "remove(article.id)")
+                                    | 刪除
+      #edit-article-modal.modal(role = "modal")
+         .modal-dialog
+            #edit-article-app.modal-content(style = "padding:10px;")
+               .alert.alert-danger(v-show = "alertContext")
+                  strong {{ alertContext }}
+               .form-group
+                  label 標題
+                  input.form-control(v-model = "title")
+               .form-group
+                  label 作者
+                  input.form-control(v-model = "author")
+               .form-group
+                  label 內容
+                  textarea(v-model = "context", rows = "10", style = "width:100%;")
+               button.btn.btn-primary(@click = "submit", style = "width:100%;") {{ submitText }}
+
+      script(src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+      script(src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+      script(src = "https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.2/vue.min.js")
+      script(src = "https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.23.0/polyfill.min.js")
+      script(src = "main.js")
