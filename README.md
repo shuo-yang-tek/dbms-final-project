@@ -3,7 +3,7 @@
 
 **請勿使用 IE**
 
-[私人 Server](http://shuo-dbms-final-project.mm.my)
+[私人 Server](http://shuo-dbms-final-project.mm.my:8120)
 
 安裝
 ===
@@ -14,20 +14,14 @@
 
 * 安裝 `npm` or `yarn`
 
-`yarn install`
-
-or
-
-`npm install`
+* `yarn install` or `npm install`
 
 更改設定
 ===
 
 Server 預設監聽 `0.0.0.0:8080`
 
-若需更改:
-
-* 修改 `src/config.js`
+若需更改，請修改 `src/config.js`
 
 開啟server
 ===
